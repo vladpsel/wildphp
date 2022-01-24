@@ -114,13 +114,14 @@ class Events
             throw new CoreException('There is no controller file');
         }
 
-        $namespace = $this->getMainNamespace();
+        $namespace = trim($this->getMainNamespace(), '\\');
+
+
 
         foreach ($controllerObjects as $controller) {
-//            $controllerFile = trim($controller, ROOT);
             $pattern = ROOT . '/';
             $controllerFile = preg_replace("~$pattern~", '', $controller);
-            $controllerFile = preg_replace('~src/App~i', $namespace, $controllerFile);
+            $controllerFile = preg_replace('~src~i', $namespace, $controllerFile);
             $controllerFile = preg_replace("~/~", '\\', $controllerFile);
             $controllerFile = trim($controllerFile, '.php');
             $object = new $controllerFile;
