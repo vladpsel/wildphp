@@ -17,6 +17,7 @@ or
 - Remove .git directory if you plan setup own git project (optional)
 - Remove docker dir if you have own enviroment
 - run composer init to setup autoloader and other utilities
+- run composer install
 
 ## Setup project with docker
 - Download/get "main" branch into dir

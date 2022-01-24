@@ -1,0 +1,17 @@
+{
+    "name": "voopsc/wild",
+    "description": "Presets for quickstart new projects",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Voopsc\\Wild\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vlad Panov",
+            "email": "vpanovwr@gmail.com"
+        }
+    ],
+    "require": {}
+}

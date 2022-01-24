@@ -29,3 +29,4 @@ include_once ROOT . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'auto
 
 
 // 5. Initialize application
+echo 'qw';
