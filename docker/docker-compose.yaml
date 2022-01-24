@@ -33,7 +33,7 @@ services:
       - db
 
   php:
-    container_name: php
+    container_name: php_wild
     build:
       context: ./php
     ports:
@@ -45,7 +45,7 @@ services:
       - db
 
   nginx:
-    container_name: nginx
+    container_name: nginx_wild
     image: nginx:stable-alpine
     ports:
       - '8080:80'
