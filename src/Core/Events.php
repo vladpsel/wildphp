@@ -6,6 +6,7 @@ namespace Voopsc\Wild\Core;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use Voopsc\Wild\Component\MetaData;
 
 class Events
 {
@@ -20,7 +21,6 @@ class Events
         $controllerData = $this->prepareControllerAction($router);
         $controller = $this->getControllerObject($controllerData);
         $params = $controllerData['params'];
-
 
         return call_user_func_array([
             $controller,

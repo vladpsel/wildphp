@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Voopsc\Wild\Controller;
 
-class HomeController
+use Voopsc\Wild\Component\BaseController;
+
+class HomeController extends BaseController
 {
 
     public function home()
     {
-        echo 'wq';
+        return $this->render('user/home.php');
     }
     
 }
