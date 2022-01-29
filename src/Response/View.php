@@ -48,9 +48,12 @@ class View
     }
 
     /**
+     * @param string|null $tplName
+     * @param array|null $tplData
+     * @return bool
      * @throws CoreException
      */
-    public function getTemplatePart(?string $tplName, ?array $tplData = []): bool
+    public function getTemplatePart(?string $tplName, mixed $tplData = []): bool
     {
         if (empty($tplName)) {
             throw new CoreException('There is no template part ');
@@ -66,6 +69,15 @@ class View
         ob_get_flush();
         return $view;
 
+    }
+
+    public function getAsset(?string $asset): ?string
+    {
+        if (empty($asset)) {
+            return null;
+        }
+        $asset = trim($asset, '/');
+        return '/' . $asset;
     }
 
 

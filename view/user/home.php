@@ -1,5 +1,12 @@
-<?php $this->components->getHead(); ?>
-<?php $this->getTemplatePart('user/layout/header'); ?>
+<?php
+use Voopsc\Wild\Component\LangComponent;
+
+$lang = new LangComponent();
+
+$this->components->getHead();
+?>
+
+<?php $this->getTemplatePart('user/layout/header', $lang); ?>
 <main>
     <section class="first-screen">
         <div class="home-first-screen wrapper">

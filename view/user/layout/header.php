@@ -1,20 +1,11 @@
 <header class="header">
     <div class="wrapper">
         <div class="flex v-center f-between">
-            <a href="index.html" class="logo np">
-                <img src="img/logo.svg" alt="Vlad Panov Logo">
+            <a href="<?php $tplData::normalize(APP_LANG); ?>" class="logo np">
+                <img src="<?php echo $this->getAsset('img/logo.svg'); ?>" alt="Vlad Panov Logo">
             </a>
-            <ul class="lang-list list np-i">
-                <li>
-                    <a href="index.html" class="selected">Ru</a>
-                </li>
-                <li>
-                    <a href="en.html">En</a>
-                </li>
-                <li>
-                    <a href="ua.html">Ua</a>
-                </li>
-            </ul>
+
+            <?php $tplData->renderLangList(['lang-list', 'list', 'np-i']); ?>
         </div>
     </div>
 </header>
