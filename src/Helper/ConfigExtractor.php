@@ -48,6 +48,22 @@ class ConfigExtractor
         return $data[$key];
     }
 
+    /**
+     * @throws CoreException
+     */
+    public function checkConfigParam(?string $key, ?string $configFile = self::DEFAULT_CONFIG): ?array
+    {
+        if (empty($configFile) || $configFile == '') {
+            throw new CoreException($configFile . 'must not bee empty or null');
+        }
+        $data = $this->getConfigFile($configFile);
+        if (!array_key_exists($key, $data)) {
+            return null;
+        }
+
+        return $data[$key];
+    }
+
     public function getConfigDirPath(): string
     {
         return self::CONFIG_DIR;

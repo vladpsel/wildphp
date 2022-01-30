@@ -26,7 +26,7 @@ include_once ROOT . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'auto
  * If you need to execute some methods, or do some other stuff
  * before initialize application, you can do it here
  */
-// ini_set('date.timezone', 'Europe/Kiev');
+ ini_set('date.timezone', 'Europe/Kiev');
 
 
 // 5. Initialize application
