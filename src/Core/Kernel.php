@@ -24,11 +24,11 @@ class Kernel
     public function __construct()
     {
         $this->env = new DotEnv();
-        $this->mode = $this->getMode();
         $this->config = new ConfigExtractor();
         $this->router = new Routing();
         $this->kernelEvents = new Events();
         $this->setEnvVariables();
+        $this->mode = $this->getMode();
     }
 
     public function run()
@@ -42,7 +42,8 @@ class Kernel
             }
             return $this->kernelEvents->callController($this->router);
         } catch (CoreException $e) {
-            print_r($e->getMessage());
+            $errorHandler = new ExceptionHandler();
+            $errorHandler->handleException($e);
         }
     }
 
@@ -53,8 +54,7 @@ class Kernel
      */
     private function getMode(): string
     {
-//        TODO: refactor .env app_env variable
-        return 'dev';
+        return getenv('APP_ENV');
     }
 
     /**
@@ -63,12 +63,8 @@ class Kernel
      */
     private function setEnvVariables(): ?bool
     {
-        switch ($this->mode) {
-            case 'dev': $this->env->setEnvFiles(['.env.local', '.env.dist']); return true;
-            case 'test': $this->env->load('.env.test'); return true;
-            case 'prod': $this->env->load('.env'); return true;
-        }
-        return null;
+        $this->env->setEnvFiles(['.env', '.env.test', '.env.dist', '.env.local']);
+        return true;
     }
     
 }

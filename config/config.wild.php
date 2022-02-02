@@ -13,4 +13,7 @@ return [
         'header' => '',
         'footer' => '',
     ],
+    'errorHandler' => [
+        404 => 'user/errors/404',
+    ],
 ];

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Voopsc\Wild\Component;
 
-use Exception;
+use Exception as ExceptionAlias;
 use Voopsc\Wild\Core\CoreException;
 use Voopsc\Wild\Helper\ConfigExtractor;
 
@@ -33,13 +33,13 @@ class LangComponent
     /**
      * @param string $filename
      * @return mixed
-     * @throws Exception
+     * @throws CoreException
      */
     public function getDictionary(string $filename): mixed
     {
         $dictFile = implode(DIRECTORY_SEPARATOR, [ROOT, 'translation', APP_LANG, $filename]);
         if (!file_exists($dictFile)) {
-            throw new Exception('There is no dictionary file at ' . $dictFile);
+            throw new CoreException('There is no dictionary file at ' . $dictFile);
         }
         return include $dictFile;
     }
